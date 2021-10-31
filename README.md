@@ -1,6 +1,6 @@
 # Body-Tracking
-> Final Project
-> จักรภัทร ผลยงค์ 6110450669
+> Final Project <br />
+> จักรภัทร ผลยงค์ 6110450669  <br />
 > กฤษดา เลขะสันต์ 6110450014
 
 ## Development
