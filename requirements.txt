@@ -1,0 +1,13 @@
+opencv-python
+pillow
+pygame
+fpstimer
+ffmpeg
+moviepy
+opencv-python
+autopy
+numpy
+times
+mediapipe
+cvzone
+os-sys
