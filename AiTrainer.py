@@ -30,11 +30,16 @@ import time
 from pygame.locals import *
 
 bg_img = pygame.image.load('img/main.jpg')
+creator_img = pygame.image.load('img/bg_creator.jpg')
 
 #setting bg 
 bg1_sample = pygame.image.load('img/1sample.jpg')
 bg2_sample = pygame.image.load('img/2sample.jpg')
 bg3_sample = pygame.image.load('img/3sample.jpg')
+logo = pygame.image.load('img/ku-logo.jpg')
+Tee = pygame.image.load('img/Tee.jpg')
+Pooh = pygame.image.load('img/Pooh.jpg')
+Teacher = pygame.image.load('img/Teacher.jpg')
 
 BLACK = (0, 0, 0)
 GREEN = (0, 255, 0)
@@ -78,6 +83,7 @@ def main_menu(set):
     text5_bool = False
     text6_bool = False
     text7_bool = False
+    text8_bool = False
 
     
     while game == True:
@@ -116,10 +122,10 @@ def main_menu(set):
         if text2_bool:
             color = GREEN
 
-        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        Font = pygame.font.SysFont('Roboto-Bold', 50)
         text = Font.render('Basic start ( recommended for beginner )',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (440,H * 1.7/ 5)
+        text_rect.center = (370,H * 1.7/ 5)
         if text_rect.collidepoint(mouse_click):
             #pygame.quit()
             choice(set)
@@ -134,10 +140,10 @@ def main_menu(set):
         if text3_bool:
             color = GREEN
         
-        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        Font = pygame.font.SysFont('Roboto-Bold', 50)
         text = Font.render('Butt Kicks',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (140,H * 2.2 / 5)
+        text_rect.center = (125,H * 2.1 / 5)
         if text_rect.collidepoint(mouse_click):
             pygame.quit()
             camera("leg_back", 10, set, 0)
@@ -152,10 +158,10 @@ def main_menu(set):
             color = GREEN
             
         
-        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        Font = pygame.font.SysFont('Roboto-Bold', 50)
         text = Font.render('High Knee',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (137,H * 2.7 / 5)
+        text_rect.center = (125,H * 2.5 / 5)
         if text_rect.collidepoint(mouse_click):
             pygame.quit()
             camera("leg_front", 10, set, 0)
@@ -171,10 +177,10 @@ def main_menu(set):
             color = GREEN
             
         
-        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        Font = pygame.font.SysFont('Roboto-Bold', 50)
         text = Font.render('Biceps Curls',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (161,H * 3.2 / 5)
+        text_rect.center = (143,H * 2.9 / 5)
         if text_rect.collidepoint(mouse_click):
             pygame.quit()
             camera("FOREARMS", 10, set, 0)
@@ -190,10 +196,10 @@ def main_menu(set):
             color = GREEN
             
         
-        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        Font = pygame.font.SysFont('Roboto-Bold', 50)
         text = Font.render('Overhead Triceps',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (206,H * 3.7 / 5)
+        text_rect.center = (180,H * 3.3 / 5)
         if text_rect.collidepoint(mouse_click):
             pygame.quit()
             camera("BACKARMS", 10, set, 0)
@@ -209,16 +215,34 @@ def main_menu(set):
             color = GREEN
 
 
-        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        Font = pygame.font.SysFont('Roboto-Bold', 50)
         text = Font.render('Setting',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (109,H * 4.2 / 5)
+        text_rect.center = (100,H * 3.7 / 5)
         if text_rect.collidepoint(mouse_click):
             setting()
         if text_rect.collidepoint(mouse_pos):
             text7_bool = True
         else:
             text7_bool = False
+        Surface.blit(text, text_rect)
+
+        color = WHITE
+
+        if text8_bool:
+            color = GREEN
+
+
+        Font = pygame.font.SysFont('Roboto-Bold', 50)
+        text = Font.render('About US',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (115,H * 4.1 / 5)
+        if text_rect.collidepoint(mouse_click):
+            creator()
+        if text_rect.collidepoint(mouse_pos):
+            text8_bool = True
+        else:
+            text8_bool = False
         Surface.blit(text, text_rect)
 
         
@@ -369,7 +393,113 @@ def setting():
         pygame.display.flip()
         mainClock.tick(100000)
 
+def creator():
+    pygame.init()
+    mainClock = pygame.time.Clock()
+    #all_fonts = pygame.font.get_fonts()
+    #Font = pygame.font.SysFont('arial', 20)
 
+
+    Surface = pygame.display.set_mode((W,H), 0, 32)
+    screen = pygame.display.set_mode((W, H))
+    pygame.display.set_caption('EXERCISE')
+
+    ##bg_img = pygame.image.load('img/ojou.jpg')
+
+    ##def text_print(text,color1,color2,left,top,Font=basicFont):
+    ##    text = Font.render(text,True,color1,color2)
+    ##    text_rect = text.get_rect()
+    ##    text_rect.top = top
+    ##    text_rect.left = left
+    ##    Surface.blit(text, text_rect)
+    game = True
+    mouse_pos = (0,0)
+    mouse_click = (0,0)
+    text1_bool = False
+    text2_bool = False
+    text3_bool = False
+    text4_bool = False
+    text5_bool = False
+ 
+
+    while game == True:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit(0)
+            if event.type == KEYUP:
+                if event.key == K_ESCAPE:
+                    pygame.quit()
+                    sys.exit(0)
+            if event.type == MOUSEMOTION:
+                mouse_pos = event.pos
+            if event.type == MOUSEBUTTONUP:
+                mouse_click = event.pos
+
+
+        screen.blit(creator_img,(0,0))
+
+        screen.blit(Pooh, (230,H * 2/ 5))
+        screen.blit(Tee, (900,H * 2/ 5))
+        screen.blit(logo, (590,H * 0.2/ 5))
+        screen.blit(Teacher, (560,H * 1.3/ 5))
+
+        color = BLACK
+
+        Font = pygame.font.SysFont('Roboto-Bold', 40)
+        text = Font.render('Advisor',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (W / 2,H * 1.1/ 5)
+        Surface.blit(text, text_rect)
+
+        Font = pygame.font.SysFont('Roboto-Bold', 40)
+        text = Font.render('Somchoke Rueng-ittinun',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (W / 2,H * 2.8/ 5)
+        Surface.blit(text, text_rect)
+
+        Font = pygame.font.SysFont('Roboto-Bold', 40)
+        text = Font.render('Jakapat Phonyong',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (300,H * 3.7/ 5)
+        Surface.blit(text, text_rect)
+
+        Font = pygame.font.SysFont('Roboto-Bold', 40)
+        text = Font.render('6110450669',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (300,H * 4.1/ 5)
+        Surface.blit(text, text_rect)
+
+        Font = pygame.font.SysFont('Roboto-Bold', 40)
+        text = Font.render('Kritsada Lakhasont',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (980,H * 3.7/ 5)
+        Surface.blit(text, text_rect)
+
+        Font = pygame.font.SysFont('Roboto-Bold', 40)
+        text = Font.render('6110450014',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (980,H * 4.1/ 5)
+        Surface.blit(text, text_rect)
+
+        color = WHITE
+        if text5_bool:
+            color = GREEN
+
+        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        text = Font.render('Back',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (110,H * 4.8 / 5)
+        if text_rect.collidepoint(mouse_click):
+            main_menu(set)
+        if text_rect.collidepoint(mouse_pos):
+            text5_bool = True
+        else:
+            text5_bool = False
+        Surface.blit(text, text_rect)
+
+        pygame.display.flip()
+        mainClock.tick(100000)
 
 def choice(set):
     pygame.init()
