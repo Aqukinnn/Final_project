@@ -439,47 +439,47 @@ def creator():
 
         screen.blit(creator_img,(0,0))
 
-        screen.blit(Pooh, (230,H * 2/ 5))
-        screen.blit(Tee, (900,H * 2/ 5))
+        screen.blit(Pooh, (300,H * 1.2/ 5))
+        screen.blit(Tee, (800,H * 1.2/ 5))
         screen.blit(logo, (590,H * 0.2/ 5))
-        screen.blit(Teacher, (560,H * 1.3/ 5))
+        #screen.blit(Teacher, (560,H * 1.3/ 5))
 
         color = BLACK
 
         Font = pygame.font.SysFont('Roboto-Bold', 40)
-        text = Font.render('Advisor',True,color)
+        text = Font.render('Member',True,color)
         text_rect = text.get_rect()
         text_rect.center = (W / 2,H * 1.1/ 5)
         Surface.blit(text, text_rect)
 
         Font = pygame.font.SysFont('Roboto-Bold', 40)
-        text = Font.render('Somchoke Rueng-ittinun',True,color)
+        text = Font.render('Advisor   Somchoke Rueng-ittinun',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (W / 2,H * 2.8/ 5)
+        text_rect.center = (W / 2,H * 3.8/ 5)
         Surface.blit(text, text_rect)
 
         Font = pygame.font.SysFont('Roboto-Bold', 40)
         text = Font.render('Jakapat Phonyong',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (300,H * 3.7/ 5)
+        text_rect.center = (360,H * 2.9/ 5)
         Surface.blit(text, text_rect)
 
         Font = pygame.font.SysFont('Roboto-Bold', 40)
         text = Font.render('6110450669',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (300,H * 4.1/ 5)
+        text_rect.center = (360,H * 3.3/ 5)
         Surface.blit(text, text_rect)
 
         Font = pygame.font.SysFont('Roboto-Bold', 40)
         text = Font.render('Kritsada Lakhasont',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (980,H * 3.7/ 5)
+        text_rect.center = (880,H * 2.9/ 5)
         Surface.blit(text, text_rect)
 
         Font = pygame.font.SysFont('Roboto-Bold', 40)
         text = Font.render('6110450014',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (980,H * 4.1/ 5)
+        text_rect.center = (880,H * 3.3/ 5)
         Surface.blit(text, text_rect)
 
         color = WHITE
