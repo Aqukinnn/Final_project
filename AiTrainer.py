@@ -145,8 +145,7 @@ def main_menu(set):
         text_rect = text.get_rect()
         text_rect.center = (125,H * 2.1 / 5)
         if text_rect.collidepoint(mouse_click):
-            pygame.quit()
-            camera("leg_back", 10, set, 0)
+            chooseamount("leg_back", set)
         if text_rect.collidepoint(mouse_pos):
             text3_bool = True
         else:
@@ -163,8 +162,7 @@ def main_menu(set):
         text_rect = text.get_rect()
         text_rect.center = (125,H * 2.5 / 5)
         if text_rect.collidepoint(mouse_click):
-            pygame.quit()
-            camera("leg_front", 10, set, 0)
+            chooseamount("leg_front", set)
         if text_rect.collidepoint(mouse_pos):
             text4_bool = True
         else:
@@ -182,8 +180,7 @@ def main_menu(set):
         text_rect = text.get_rect()
         text_rect.center = (143,H * 2.9 / 5)
         if text_rect.collidepoint(mouse_click):
-            pygame.quit()
-            camera("FOREARMS", 10, set, 0)
+            chooseamount("FOREARMS", set)
         if text_rect.collidepoint(mouse_pos):
             text5_bool = True
         else:
@@ -197,12 +194,11 @@ def main_menu(set):
             
         
         Font = pygame.font.SysFont('Roboto-Bold', 50)
-        text = Font.render('Overhead Triceps',True,color)
+        text = Font.render('Lateral Raise',True,color)
         text_rect = text.get_rect()
-        text_rect.center = (180,H * 3.3 / 5)
+        text_rect.center = (148,H * 3.3 / 5)
         if text_rect.collidepoint(mouse_click):
-            pygame.quit()
-            camera("BACKARMS", 10, set, 0)
+            chooseamount("BACKARMS", set)
         if text_rect.collidepoint(mouse_pos):
             text6_bool = True
         else:
@@ -547,7 +543,7 @@ def choice(set):
 
         Font = pygame.font.SysFont('Roboto-Bold', 50)
         color = WHITE
-        text = Font.render('Start from Forearm > Back leg > Backarm > Front leg',True,color)
+        text = Font.render('Start from Biceps Curls > Butt Kicks > Lateral Raise > High Knee',True,color)
         text_rect = text.get_rect()
         text_rect.center = (W / 2,H * 0.5 / 5)
         Surface.blit(text, text_rect)
@@ -600,6 +596,165 @@ def choice(set):
             text4_bool = True
         else:
             text4_bool = False
+        Surface.blit(text, text_rect)
+
+
+        pygame.display.flip()
+        mainClock.tick(100000)
+
+def chooseamount(tbody, set):
+    pygame.init()
+    mainClock = pygame.time.Clock()
+    #all_fonts = pygame.font.get_fonts()
+    #Font = pygame.font.SysFont('arial', 20)
+    
+
+    Surface = pygame.display.set_mode((W,H), 0, 32)
+    screen = pygame.display.set_mode((W, H))
+    pygame.display.set_caption('EXERCISE')
+
+
+    ##def text_print(text,color1,color2,left,top,Font=basicFont):
+    ##    text = Font.render(text,True,color1,color2)
+    ##    text_rect = text.get_rect()
+    ##    text_rect.top = top
+    ##    text_rect.left = left
+    ##    Surface.blit(text, text_rect)
+    game = True
+    mouse_pos = (0,0)
+    mouse_click = (0,0)
+    text1_bool = False
+    text2_bool = False
+    text3_bool = False
+    text4_bool = False
+    text5_bool = False
+    text6_bool = False
+    text7_bool = False
+    
+
+    while game == True:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit(0)
+            if event.type == KEYUP:
+                if event.key == K_ESCAPE:
+                    pygame.quit()
+                    sys.exit(0)
+            if event.type == MOUSEMOTION:
+                mouse_pos = event.pos
+            if event.type == MOUSEBUTTONUP:
+                mouse_click = event.pos
+
+
+        screen.blit(bg_img,(0,0))
+
+        Font = pygame.font.SysFont('Roboto-Bold', 50)
+        color = WHITE
+        text = Font.render('Choose amount of exercise',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (W / 2,H * 0.5 / 5)
+        Surface.blit(text, text_rect)
+
+        color = WHITE
+        if text2_bool:
+            color = GREEN
+
+        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        text = Font.render('Level 1 (10)',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (W / 2,H * 1/ 5)
+        if text_rect.collidepoint(mouse_click):
+            pygame.quit()
+            camera(tbody, 10, set, 0)
+        if text_rect.collidepoint(mouse_pos):
+            text2_bool = True
+        else:
+            text2_bool = False
+        Surface.blit(text, text_rect)
+
+        color = WHITE
+        if text3_bool:
+            color = GREEN
+
+        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        text = Font.render('Level 2 (20)',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (W / 2,H * 1.7/ 5)
+        if text_rect.collidepoint(mouse_click):
+            pygame.quit()
+            camera(tbody, 20, set, 0)
+        if text_rect.collidepoint(mouse_pos):
+            text3_bool = True
+        else:
+            text3_bool = False
+        Surface.blit(text, text_rect)
+
+        color = WHITE
+        if text4_bool:
+            color = GREEN
+
+        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        text = Font.render('Level 3 (30)',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (W / 2,H * 2.4/ 5)
+        if text_rect.collidepoint(mouse_click):
+            pygame.quit()
+            camera(tbody, 30, set, 0)
+        if text_rect.collidepoint(mouse_pos):
+            text4_bool = True
+        else:
+            text4_bool = False
+        Surface.blit(text, text_rect)
+
+        color = WHITE
+        if text5_bool:
+            color = GREEN
+
+        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        text = Font.render('Level 4 (40)',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (W / 2,H * 3.1/ 5)
+        if text_rect.collidepoint(mouse_click):
+            pygame.quit()
+            camera(tbody, 40, set, 0)
+        if text_rect.collidepoint(mouse_pos):
+            text5_bool = True
+        else:
+            text5_bool = False
+        Surface.blit(text, text_rect)
+
+        color = WHITE
+        if text6_bool:
+            color = GREEN
+
+        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        text = Font.render('Level 5 (50)',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (W / 2,H * 3.8/ 5)
+        if text_rect.collidepoint(mouse_click):
+            pygame.quit()
+            camera(tbody, 50, set, 0)
+        if text_rect.collidepoint(mouse_pos):
+            text6_bool = True
+        else:
+            text6_bool = False
+        Surface.blit(text, text_rect)
+
+        color = WHITE
+        if text7_bool:
+            color = GREEN
+
+        Font = pygame.font.SysFont('Roboto-Bold', 60)
+        text = Font.render('Back',True,color)
+        text_rect = text.get_rect()
+        text_rect.center = (110,H * 4.2 / 5)
+        if text_rect.collidepoint(mouse_click):
+            main_menu(set)
+        if text_rect.collidepoint(mouse_pos):
+            text7_bool = True
+        else:
+            text7_bool = False
         Surface.blit(text, text_rect)
 
 
@@ -768,13 +923,13 @@ def camera(tbody, round, set, connect):
                 img3 = cv2.resize(img3, (200, 200))
                 img_height, img_width, _ = img3.shape
             elif tbody=="BACKARMS" and count2 == 0:
-                angle = detector.findAngle(imgchange, 12, 14, 16,)
-                img3 = cv2.imread('img/Overhead_Triceps (right).jpg')
+                angle = detector.findAngle(imgchange, 24, 12, 16,)
+                img3 = cv2.imread('img/Spare_pose(right).jpg')
                 img3 = cv2.resize(img3, (200, 200))
                 img_height, img_width, _ = img3.shape
             elif tbody=="BACKARMS" and count2 > 0:
-                angle = detector.findAngle(imgchange, 11, 13, 15,)
-                img3 = cv2.imread('img/Overhead_Triceps(left).jpg')
+                angle = detector.findAngle(imgchange, 23, 11, 15,)
+                img3 = cv2.imread('img/Spare_pose(left).jpg')
                 img3 = cv2.resize(img3, (200, 200))
                 img_height, img_width, _ = img3.shape
             
